@@ -101,12 +101,13 @@ func (m ExampleModel) View() string {
 	var style = lipgloss.NewStyle().
 		Bold(true).
 		Foreground(lipgloss.Color("#FAFAFA")).
-		Background(lipgloss.Color("#7D56F4")).
-		// PaddingTop(2).
+		// Background(lipgloss.Color("#7D56F4")).
+		Border(lipgloss.NormalBorder()).
+		BorderForeground(lipgloss.Color("#7D56F4")).
 		AlignHorizontal(lipgloss.Center).
 		Width(22)
 
-	s += (style.Render("Hello, kitty"))
+	s += (style.Render("Hello, test"))
 
 	// The footer
 	s += "\nPress q to quit.\n"
