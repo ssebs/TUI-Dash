@@ -5,11 +5,15 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "preLaunchTask": "Start Delve",
             "name": "Run TUI Dash",
             "type": "go",
-            "request": "launch",
-            "mode": "auto",
-            "program": "${workspaceFolder}/main.go"
+            "request": "attach",
+            "mode": "remote",
+            "remotePath": "${workspaceFolder}",
+            "apiVersion": 2,
+            "port": 43000,
+            "host": "127.0.0.1",
         }
     ]
 }

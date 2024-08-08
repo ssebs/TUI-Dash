@@ -1,0 +1,16 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Start Delve",
+        "type": "shell",
+        "command": "dlv debug --headless --api-version=2 --listen=127.0.0.1:43000 .",
+        "problemMatcher": ["$go"],
+        "isBackground": true,
+        "presentation": {
+          "reveal": "always"
+        }
+      }
+    ]
+  }
+  

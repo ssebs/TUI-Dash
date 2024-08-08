@@ -1,6 +1,7 @@
 package tui
 
 import (
+	"fmt"
 	"os"
 	"time"
 
@@ -42,6 +43,8 @@ func (m MainWindow) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		}
 	}
 
+	fmt.Println("test")
+
 	return m, nil
 }
 
@@ -72,7 +75,7 @@ func (m MainWindow) renderHeader() string {
 		Border(lipgloss.NormalBorder()).
 		BorderForeground(lipgloss.Color("#7D56F4")).
 		AlignHorizontal(lipgloss.Center).
-		Width(m.w).
+		Width(m.w-2).
 		Padding(0, 2)
 
 	s := m.currentTime.Format("15:04")
