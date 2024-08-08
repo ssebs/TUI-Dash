@@ -1,42 +1,35 @@
 # TUI Dashboard
-A Text User Input Dashboard.
-
-This can be a basic dashboard that shows various information, and support long running TUI animations like from htop or pipe.sh.
+A Text User Input Dashboard. This can be a basic dashboard that shows various information, and maybe have a couple light animations.
 
 ## Building / dev setup
 - Install golang
 - Clone this repo
-- `$ go get ...`
+- `$ go mod tidy`
+
+## Installing
+- `$ go install github.com/ssebs/tui-dash`
 
 ## Bugs / TODO
 - [ ] https://www.inngest.com/blog/interactive-clis-with-bubbletea
-- [ ] border on right is off by a pixel
+- [ ] Decide what I want this to be
 - [ ] support resizing
 - [ ] learn how to layout stuff
-- [ ] 
 
-## Goals / req'd features
+## Goals
 - [x] display time / date
   - [ ] as asciitext big font
-- [ ] display basic htop (top part)
-- [ ] display output of any command (pipes.sh, htop, glances, etc.)
-  - [ ] i.e. long running command support?
+- [ ] display system info
+  - [ ] RAM usage
+  - [ ] CPU usage
+  - [ ] DISK / Network IO / usage?
+  - [ ] hostname, IP addr
+- [ ] MOTD (curl an API?)
 - [ ] display contents of file? Like todo's
+- [ ] Create an animation
+- [ ] Create breakout?
 - [x] styles
   - [x] colored border
   - [ ] color themes
-- [ ] config file
-  - [ ] theme color
-  - [ ] selection of "plugins / things to run" <- decide on what to call these
-  - [ ] support for any command
-- [ ] Run up to 2 cmds at startup
-  - [ ] e.g. htop and pipes.sh
-  - [ ] Allow quitting each and editing the command on shortcut
-  - [ ] Allow entering context of program on enter
 
-## Stretch goals / wanted features
-- [ ] support rendering .gif or .mp4 as ascii?
-- [ ] support gui placement customization
-- [ ] config editor
 
 
