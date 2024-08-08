@@ -1,16 +1,17 @@
 package tui
 
 import (
-	"fmt"
 	"os"
 	"time"
 
+	"github.com/charmbracelet/bubbles/stopwatch"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 	"github.com/charmbracelet/x/term"
 )
 
 type MainWindow struct {
+	stopwatch   stopwatch.Model
 	w, h        int
 	currentTime time.Time
 	// header      tea.Model
@@ -22,11 +23,12 @@ func CreateMainWindow() MainWindow {
 	return MainWindow{
 		currentTime: time.Now(),
 		mainArea:    "TUI Dash",
+		stopwatch:   stopwatch.NewWithInterval(30 * time.Millisecond),
 	}
 }
 
 func (m MainWindow) Init() tea.Cmd {
-	return nil
+	return m.stopwatch.Init()
 }
 
 func (m MainWindow) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
@@ -43,9 +45,10 @@ func (m MainWindow) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		}
 	}
 
-	fmt.Println("test")
+	var cmd tea.Cmd
+	m.stopwatch, cmd = m.stopwatch.Update(msg)
 
-	return m, nil
+	return m, cmd
 }
 
 func (m MainWindow) View() string {
@@ -55,6 +58,8 @@ func (m MainWindow) View() string {
 	s += "\n"
 	s += renderBox(m.mainArea)
 	s += "\n"
+
+	s += m.stopwatch.View() + "\n"
 
 	return s
 }
@@ -78,7 +83,7 @@ func (m MainWindow) renderHeader() string {
 		Width(m.w-2).
 		Padding(0, 2)
 
-	s := m.currentTime.Format("15:04")
+	s := m.currentTime.Format("15:04:05")
 
 	return headerStyle.Render(s)
 }
