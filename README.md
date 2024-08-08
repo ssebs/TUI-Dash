@@ -9,7 +9,7 @@ This can be a basic dashboard that shows various information, and support long r
 - `$ go get ...`
 
 ## Bugs / TODO
-- [ ] debugger https://stackoverflow.com/a/39062734
+- [ ] https://www.inngest.com/blog/interactive-clis-with-bubbletea
 - [ ] border on right is off by a pixel
 - [ ] support resizing
 - [ ] learn how to layout stuff
